@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <CodeFiles Include="$(TargetPath)"/>
+    <CodeFiles Include="$(TargetDir)/$(TargetName).pdb"/>
+    <Res Include="$(ProjectDir)resources/**" LinkBase="resources/"/>
+    <ModInfo Include="$(ProjectDir)resources/modinfo.json"/>
+  </ItemGroup>
+
+  <Target Name="CopyDebug" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
+    <Copy SourceFiles="@(CodeFiles)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)" />
+    <Copy SourceFiles="@(ModInfo)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)" />
+  </Target>
+
+  <Target Name="CopyRelease" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="@(CodeFiles)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)Release" />
+    <Copy SourceFiles="@(Res)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)Release" />
+  </Target>
+
+</Project>
