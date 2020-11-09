@@ -1,0 +1,14 @@
+[
+  {
+    "file": "game:blocktypes/liquid/snowlayer.json",
+    "op": "replace",
+    "path": "/drops",
+    "value": [
+      {
+        "type": "item",
+        "code": "happywinter:snowball",
+        "quantity": { "avg": 3, "var": 1 }
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "code": "thrownsnowball",
+  "class": "EntityThrownSnowball",
+  "hitboxSize": { "x": 0.25, "y": 0.25 },
+  "client": {
+    "renderer": "Shape",
+    "shape": { "base": "item/sphere" },
+    "texture": {
+      "base": "game:block/snow/normal1"
+    },
+    "size": 0.25,
+    "behaviors": [
+      { "code": "passivephysics" },
+      { "code": "interpolateposition" },
+      { "code": "floatupwhenstuck" }
+    ]
+  },
+  "server": {
+    "behaviors": [
+      { "code": "passivephysics" },
+      { "code": "despawn", "minSeconds": 300 },
+      { "code": "floatupwhenstuck" }
+    ]
+  },
+  "sounds": {},
+  "attributes": {
+    "physics": {
+      "groundDragFactor": 1,
+      "airDragFallingFactor": 0.25
+    }
+  }
+}

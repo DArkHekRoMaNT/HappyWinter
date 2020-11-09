@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "happywinter",
+  "name": "Happy Winter!",
+  "author": "DArkHekRoMaNT",
+  "version": "1.0.0pre.1",
+  "dependency": {
+    "game": "1.13.4"
+  },
+  "website": "https://github.com/darkhekromant/HappyWinter"
+}
