@@ -98,7 +98,10 @@ namespace HappyWinter
             AssetLocation snowBlockCode = null;
 
             if (target.Id == 0) snowBlockCode = new AssetLocation("game", "snowlayer-1");
-            else if (target.LastCodePart() == "free") snowBlockCode = target.CodeWithVariant("cover", "snow");
+            else if (target.LastCodePart() == "free" && target.CodeWithVariant("cover", "snow").Valid)
+            {
+                snowBlockCode = target.CodeWithVariant("cover", "snow");
+            }
             else if (target.FirstCodePart() == "snowlayer")
             {
                 int height = int.Parse(target.LastCodePart());
