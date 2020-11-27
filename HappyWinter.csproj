@@ -5,25 +5,12 @@
   
   <ItemGroup>
     <Reference Include="VintagestoryAPI">
-      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/VintagestoryAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <CodeFiles Include="$(TargetPath)"/>
-    <CodeFiles Include="$(TargetDir)/$(TargetName).pdb"/>
-    <Res Include="$(ProjectDir)resources/**" LinkBase="resources/"/>
-    <ModInfo Include="$(ProjectDir)resources/modinfo.json"/>
-  </ItemGroup>
-
-  <Target Name="CopyDebug" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
-    <Copy SourceFiles="@(CodeFiles)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)" />
-    <Copy SourceFiles="@(ModInfo)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)" />
+  <Target Name="Copy" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)mods/$(ProjectName)" />
+    <Copy SourceFiles="$(TargetDir)/$(TargetName).pdb" DestinationFolder="$(ProjectDir)mods/$(ProjectName)" />
   </Target>
-
-  <Target Name="CopyRelease" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
-    <Copy SourceFiles="@(CodeFiles)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)Release" />
-    <Copy SourceFiles="@(Res)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods/$(TargetName)Release" />
-  </Target>
-
 </Project>
