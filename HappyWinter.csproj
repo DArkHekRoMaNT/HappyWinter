@@ -4,8 +4,14 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/Lib/0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/VintagestoryAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/Mods/VSSurvivalMod.dll</HintPath>
     </Reference>
   </ItemGroup>
 

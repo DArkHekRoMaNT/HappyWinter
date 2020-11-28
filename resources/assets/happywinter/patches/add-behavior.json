@@ -1,0 +1,8 @@
+[
+  {
+    "file": "game:blocktypes/liquid/snowlayer.json",
+    "op": "add",
+    "path": "/behaviors/-",
+    "value": { "name": "CollectSnowball" }
+  }
+]

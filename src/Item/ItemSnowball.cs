@@ -1,6 +1,8 @@
+using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 
@@ -8,6 +10,7 @@ namespace HappyWinter
 {
     public class ItemSnowball : Item
     {
+        protected float damage = 0.25f;
         public override string GetHeldTpUseAnimation(ItemSlot activeHotbarSlot, Entity forEntity)
         {
             return null;
@@ -15,6 +18,8 @@ namespace HappyWinter
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
+            if (byEntity.Controls.Sneak) return;
+
             byEntity.Attributes.SetInt("aiming", 1);
             byEntity.Attributes.SetInt("aimingCancel", 0);
             byEntity.StartAnimation("aim");
@@ -64,8 +69,6 @@ namespace HappyWinter
             byEntity.StopAnimation("aim");
 
             if (secondsUsed < 0.35f) return;
-
-            float damage = 0.125f;
 
             ItemStack stack;
             if ((byEntity as EntityPlayer)?.Player.WorldData.CurrentGameMode != EnumGameMode.Creative)
@@ -117,6 +120,12 @@ namespace HappyWinter
                     MouseButton = EnumMouseButton.Right,
                 }
             }.Append(base.GetHeldInteractionHelp(inSlot));
+        }
+        public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
+        {
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+
+            dsc.AppendLine(Lang.Get("{0} frost damage when thrown", damage));
         }
     }
 }

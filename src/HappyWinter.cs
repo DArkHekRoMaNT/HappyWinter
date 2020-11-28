@@ -1,8 +1,6 @@
 using System;
 using Vintagestory.API.Common;
 
-[assembly: ModInfo("HappyWinter")]
-
 namespace HappyWinter
 {
     public class HappyWinter : ModSystem
@@ -14,6 +12,8 @@ namespace HappyWinter
             base.Start(api);
             api.RegisterItemClass("ItemSnowball", Type.GetType(MOD_SPACE + ".ItemSnowball"));
             api.RegisterEntity("EntityThrownSnowball", Type.GetType(MOD_SPACE + ".EntityThrownSnowball"));
+            api.RegisterBlockBehaviorClass("CollectSnowball", Type.GetType(MOD_SPACE + ".BlockBehaviorCollectSnowball"));
         }
+
     }
 }

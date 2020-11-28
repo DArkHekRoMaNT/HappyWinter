@@ -10,12 +10,9 @@ namespace HappyWinter
     public class EntityThrownSnowball : Entity
     {
         bool beforeCollided;
-        bool stuck;
 
         long msLaunch;
         Vec3d motionBeforeCollide = new Vec3d();
-
-        //CollisionTester collTester = new CollisionTester();
 
         public Entity FiredBy;
         internal float Damage;
@@ -66,7 +63,7 @@ namespace HappyWinter
                 {
                     float kbres = entity.Properties.KnockbackResistance;
                     entity.Properties.KnockbackResistance = -1;
-                    bool didDamage = entity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Entity, SourceEntity = FiredBy == null ? this : FiredBy, Type = EnumDamageType.BluntAttack }, Damage);
+                    bool didDamage = entity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Entity, SourceEntity = FiredBy == null ? this : FiredBy, Type = EnumDamageType.Frost }, Damage);
                     entity.Properties.KnockbackResistance = kbres;
                     World.PlaySoundAt(new AssetLocation(HappyWinter.MOD_ID, "sounds/snowballhit"), this, null, false, 32);
 
