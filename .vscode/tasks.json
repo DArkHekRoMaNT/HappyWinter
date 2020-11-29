@@ -11,7 +11,8 @@
       "label": "pack-release",
       "type": "shell",
       "command": "git archive -o releases/${workspaceFolderBasename}_v${config:vsversion}_last.zip \"HEAD:resources\"",
-      "presentation": { "reveal": "silent" }
+      "presentation": { "reveal": "silent" },
+      "dependsOn": "pack"
     },
     {
       "label": "build (Debug)",
