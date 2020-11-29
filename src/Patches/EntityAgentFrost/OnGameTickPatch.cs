@@ -1,7 +1,5 @@
-using System;
 using HarmonyLib;
 using Vintagestory.API.Common;
-using Vintagestory.API.MathTools;
 
 namespace appyWinter.Patches.EntityAgentFrost
 {
@@ -20,7 +18,7 @@ namespace appyWinter.Patches.EntityAgentFrost
                 else __instance.WatchedAttributes.SetFloat("frostms", frostms);
 
                 float walkspeed = __instance.Stats.GetBlended("walkspeed");
-                float frostmod = -0.5f; // 50% slowly
+                float frostmod = -0.5f; // 50% slower
                 __instance.Stats.Set("walkspeed", "frostmod", walkspeed * frostmod, false);
             }
             return true;

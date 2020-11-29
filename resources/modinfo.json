@@ -3,7 +3,7 @@
   "modid": "happywinter",
   "name": "Happy Winter!",
   "author": "DArkHekRoMaNT",
-  "version": "1.0.0-pre.2",
+  "version": "1.0.0-pre.3",
   "dependency": {
     "game": "1.14.0-rc.4"
   },
