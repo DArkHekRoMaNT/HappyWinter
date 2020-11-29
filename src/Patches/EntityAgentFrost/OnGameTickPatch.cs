@@ -11,16 +11,17 @@ namespace appyWinter.Patches.EntityAgentFrost
     {
         static bool Prefix(EntityAgent __instance, ref float dt)
         {
+            __instance.Stats.Remove("walkspeed", "frostmod");
+
             if (__instance.WatchedAttributes.GetBool("frosted"))
             {
                 float frostms = __instance.WatchedAttributes.GetFloat("frostms") - dt;
                 if (frostms < 0) __instance.WatchedAttributes.SetBool("frosted", false);
                 else __instance.WatchedAttributes.SetFloat("frostms", frostms);
 
-                Console.WriteLine("[DD] " + frostms);
-
-                // 75% chance to skip a tick. Lazy way to slow down :D
-                if (new Random().Next(4) != 0) return false;
+                float walkspeed = __instance.Stats.GetBlended("walkspeed");
+                float frostmod = -0.5f; // 50% slowly
+                __instance.Stats.Set("walkspeed", "frostmod", walkspeed * frostmod, false);
             }
             return true;
         }
