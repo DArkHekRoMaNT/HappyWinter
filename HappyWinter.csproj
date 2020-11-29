@@ -1,17 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
+    <VSVersion>1.14.0-rc.4</VSVersion>
   </PropertyGroup>
   
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/Lib/0Harmony.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY)/$(VSVersion)/Lib/0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="VintagestoryAPI">
-      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/VintagestoryAPI.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY)/$(VSVersion)/VintagestoryAPI.dll</HintPath>
     </Reference>
     <Reference Include="VSSurvivalMod">
-      <HintPath>$(VINTAGE_STORY)/1.14.0-rc.4/Mods/VSSurvivalMod.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY)/$(VSVersion)/Mods/VSSurvivalMod.dll</HintPath>
     </Reference>
   </ItemGroup>
 
