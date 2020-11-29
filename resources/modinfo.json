@@ -3,9 +3,9 @@
   "modid": "happywinter",
   "name": "Happy Winter!",
   "author": "DArkHekRoMaNT",
-  "version": "1.0.0pre.1",
+  "version": "1.0.0-pre.2",
   "dependency": {
-    "game": "1.13.4"
+    "game": "1.14.0-rc.4"
   },
   "website": "https://github.com/darkhekromant/HappyWinter"
 }
