@@ -10,11 +10,11 @@ namespace HappyWinter.Patches.EntityAgentFrost
     {
         static bool Prefix(EntityAgent __instance, ref DamageSource damageSource)
         {
-            if (damageSource.Type == EnumDamageType.Frost)
+            if (__instance.WatchedAttributes.GetBool("receiveFrostDamage"))
             {
+                __instance.WatchedAttributes.SetBool("receiveFrostDamage", false);
                 __instance.WatchedAttributes.SetBool("frosted", true);
                 __instance.WatchedAttributes.SetFloat("frostms", new Random().Next(2000, 5000) / 1000f); // sec
-                Console.WriteLine("[DD] " + __instance.WatchedAttributes.GetFloat("frostms"));
             }
             return true;
         }

@@ -1,8 +1,26 @@
 {
   "code": "snowball",
   "class": "ItemSnowball",
-  "texture": {
-    "base": "game:block/snow/normal1"
+  "variantgroups": [{ "code": "type", "states": ["normal", "heavy"] }],
+  "attributes": {
+    "frostdamageByType": {
+      "*-normal": 0.25,
+      "*-heavy": 1
+    },
+    "handbook": {
+      "extraSectionsByType": {
+        "*-normal": [
+          {
+            "title": "happywinter:snowball-normal-handbook-help-title",
+            "text": "happywinter:snowball-normal-handbook-help-text"
+          }
+        ]
+      }
+    }
+  },
+  "textureByType": {
+    "*-normal": { "base": "game:block/snow/normal1" },
+    "*-heavy": { "base": "game:block/snow/normal1" }
   },
   "shape": {
     "base": "item/sphere"

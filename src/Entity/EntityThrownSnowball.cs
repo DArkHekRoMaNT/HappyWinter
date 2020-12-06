@@ -63,11 +63,12 @@ namespace HappyWinter
                 {
                     float kbres = entity.Properties.KnockbackResistance;
                     entity.Properties.KnockbackResistance = -1;
-                    bool didDamage = entity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Entity, SourceEntity = FiredBy == null ? this : FiredBy, Type = EnumDamageType.Frost }, Damage);
+                    entity.WatchedAttributes.SetBool("receiveFrostDamage", true);
+                    bool didDamage = entity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Entity, SourceEntity = FiredBy == null ? this : FiredBy, Type = EnumDamageType.BluntAttack }, Damage);
                     entity.Properties.KnockbackResistance = kbres;
                     World.PlaySoundAt(new AssetLocation(HappyWinter.MOD_ID, "sounds/snowballhit"), this, null, false, 32);
 
-                    if (FiredBy is EntityPlayer && didDamage)
+                    if (/*FiredBy is EntityPlayer && */didDamage)
                     {
                         //World.PlaySoundFor(new AssetLocation("game", "sounds/player/projectilehit"), (FiredBy as EntityPlayer).Player, false, 24);
                     }

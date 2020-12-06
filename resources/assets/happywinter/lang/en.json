@@ -1,3 +1,5 @@
 {
-  "item-snowball": "Snowball"
+  "item-snowball-*": "Snowball",
+  "happywinter:snowball-normal-handbook-help-title": "Obtained by",
+  "happywinter:snowball-normal-handbook-help-text": "Using Sneak + Right Mouse Button on the snow."
 }

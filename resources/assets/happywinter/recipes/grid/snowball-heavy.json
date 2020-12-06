@@ -1,0 +1,11 @@
+{
+  "ingredientPattern": "SR",
+  "ingredients": {
+    "R": { "type": "item", "code": "game:stone-*" },
+    "S": { "type": "item", "code": "snowball-normal" }
+  },
+  "width": 2,
+  "height": 1,
+  "shapeless": true,
+  "output": { "type": "item", "code": "snowball-heavy" }
+}

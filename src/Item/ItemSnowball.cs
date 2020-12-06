@@ -10,12 +10,17 @@ namespace HappyWinter
 {
     public class ItemSnowball : Item
     {
-        protected float damage = 0.25f;
+        protected float damage;
+        public override void OnLoaded(ICoreAPI api)
+        {
+            base.OnLoaded(api);
+            damage = Attributes["frostdamage"].AsFloat();
+        }
+        //What is this? =.=
         public override string GetHeldTpUseAnimation(ItemSlot activeHotbarSlot, Entity forEntity)
         {
             return null;
         }
-
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             if (byEntity.Controls.Sneak) return;

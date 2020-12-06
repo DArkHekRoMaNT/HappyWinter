@@ -19,7 +19,7 @@ namespace HappyWinter
             {
                 handling = EnumHandling.PreventDefault;
                 ItemStack snowball = new ItemStack(byPlayer.Entity.World.GetItem(
-                    new AssetLocation(HappyWinter.MOD_ID, "snowball")));
+                    new AssetLocation(HappyWinter.MOD_ID, "snowball-normal")));
 
                 ItemSlot rslot = byPlayer.Entity.RightHandItemSlot;
                 if (rslot.Empty)
